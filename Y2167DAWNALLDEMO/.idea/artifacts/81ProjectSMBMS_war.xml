@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="81ProjectSMBMS:war">
+    <output-path>$PROJECT_DIR$/81ProjectSMBMS/target</output-path>
+    <root id="archive" name="Y2167DAWNALLDEMO.war">
+      <element id="artifact" artifact-name="81ProjectSMBMS:war exploded" />
+    </root>
+  </artifact>
+</component>

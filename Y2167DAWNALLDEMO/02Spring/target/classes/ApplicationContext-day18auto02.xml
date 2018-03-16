@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--要增强的对象-->
+    <bean id="service" class="cn.dawn.day18auto02.SomeServiceImpl"></bean>
+    <bean id="bookservice" class="cn.dawn.day18auto02.BookServiceImpl"></bean>
+    <!--增强的内容-->
+    <bean id="myadvice" class="cn.dawn.day18auto02.LoggerBefore"></bean>
+    <!--顾问-->
+    <bean id="myadvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+        <property name="advice" ref="myadvice"></property>
+        <!--<property name="mappedNames" value="do*"></property>-->
+        <!--<property name="pattern" value=".*do.*"></property>-->
+        <property name="patterns" value=".*e.*"></property>
+    </bean>
+    <!--名称自动代理生成器-->
+    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <property name="beanNames" value="service,bookservice"></property>
+        <property name="interceptorNames" value="myadvisor"></property>
+    </bean>
+
+</beans>

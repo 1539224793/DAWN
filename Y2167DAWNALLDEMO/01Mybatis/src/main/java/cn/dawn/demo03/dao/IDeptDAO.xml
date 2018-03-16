@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dawn.demo03.dao.IDeptDAO">
+    <!--一对多单条sql-->
+    <resultMap id="DeptMapper" type="Dept">
+        <id column="deptNo" property="deptNo"></id>
+        <result column="deptName" property="deptName"></result>
+        <collection property="emps" ofType="Emp">
+            <id column="empNo" property="empNo"></id>
+            <result column="empName" property="empName"></result>
+        </collection>
+    </resultMap>
+    <!--一对多多条sql-->
+    <resultMap id="DeptMoreSqlMapper" type="Dept">
+        <id column="deptNo" property="deptNo"></id>
+        <result column="deptName" property="deptName"></result>
+        <collection property="emps" ofType="Emp" select="findDeptnoALLEmpsMoreSqlEmps" column="deptNo">
+            <id column="empNo" property="empNo"></id>
+            <result column="empName" property="empName"></result>
+        </collection>
+    </resultMap>
+    <!--一对多单条sql-->
+    <select id="findDeptnoALLEmps" resultMap="DeptMapper">
+        SELECT d.deptNo,empNo,deptName,empName FROM dept d,emp e WHERE d.deptNo=e.DeptNo AND d.deptNo=#{deptNo}
+    </select>
+    <!--一对多多条sql-->
+    <select id="findDeptnoALLEmpsMoreSql" resultMap="DeptMoreSqlMapper">
+        SELECT deptNo,deptName FROM dept WHERE deptNo=#{deptNo}
+    </select>
+    <select id="findDeptnoALLEmpsMoreSqlEmps" resultType="Emp">
+        SELECT * FROM emp where deptNo=#{deptNo}
+    </select>
+
+</mapper>

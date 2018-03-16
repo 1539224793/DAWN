@@ -1,0 +1,18 @@
+2018-02-25 15:14:00.986 DEBUG [main]cn.dawn.dao.IUserDAO.loginUser.debug:145 -==>  Preparing: SELECT * FROM smbms_user WHERE userCode=? AND userPassword=? 
+2018-02-25 15:14:01.015 DEBUG [main]cn.dawn.dao.IUserDAO.loginUser.debug:145 -==> Parameters: 1(String), 1(String)
+2018-02-25 15:14:01.027 DEBUG [main]cn.dawn.dao.IUserDAO.loginUser.debug:145 -<==      Total: 1
+2018-02-25 16:15:28.990 DEBUG [main]cn.dawn.dao.IUserDAO.loginUser.debug:145 -==>  Preparing: SELECT * FROM smbms_user WHERE userCode=? AND userPassword=? 
+2018-02-25 16:15:29.022 DEBUG [main]cn.dawn.dao.IUserDAO.loginUser.debug:145 -==> Parameters: 1(String), 1(String)
+2018-02-25 16:15:29.034 DEBUG [main]cn.dawn.dao.IUserDAO.loginUser.debug:145 -<==      Total: 1
+2018-02-25 16:16:29.843 DEBUG [main]cn.dawn.dao.IUserDAO.loginUser.debug:145 -==>  Preparing: SELECT * FROM smbms_user WHERE userCode=? AND userPassword=? 
+2018-02-25 16:16:29.878 DEBUG [main]cn.dawn.dao.IUserDAO.loginUser.debug:145 -==> Parameters: 1(String), 1(String)
+2018-02-25 16:16:29.893 DEBUG [main]cn.dawn.dao.IUserDAO.loginUser.debug:145 -<==      Total: 1
+2018-02-25 16:16:58.677 DEBUG [main]cn.dawn.dao.IUserDAO.loginUser.debug:145 -==>  Preparing: SELECT * FROM smbms_user WHERE userCode=? AND userPassword=? 
+2018-02-25 16:16:58.715 DEBUG [main]cn.dawn.dao.IUserDAO.loginUser.debug:145 -==> Parameters: 1(String), 1(String)
+2018-02-25 16:16:58.729 DEBUG [main]cn.dawn.dao.IUserDAO.loginUser.debug:145 -<==      Total: 1
+2018-02-25 17:09:49.694 DEBUG [main]cn.dawn.dao.IUserDAO.updateUserPassword.debug:145 -==>  Preparing: UPDATE smbms_user SET userPassword=? WHERE userCode=? 
+2018-02-25 17:09:49.723 DEBUG [main]cn.dawn.dao.IUserDAO.updateUserPassword.debug:145 -==> Parameters: 123(String), 1(String)
+2018-02-25 17:09:49.724 DEBUG [main]cn.dawn.dao.IUserDAO.updateUserPassword.debug:145 -<==    Updates: 1
+2018-02-25 17:10:59.930 DEBUG [main]cn.dawn.dao.IUserDAO.updateUserPassword.debug:145 -==>  Preparing: UPDATE smbms_user SET userPassword=? WHERE userCode=? 
+2018-02-25 17:10:59.958 DEBUG [main]cn.dawn.dao.IUserDAO.updateUserPassword.debug:145 -==> Parameters: 123(String), 1(String)
+2018-02-25 17:10:59.959 DEBUG [main]cn.dawn.dao.IUserDAO.updateUserPassword.debug:145 -<==    Updates: 1

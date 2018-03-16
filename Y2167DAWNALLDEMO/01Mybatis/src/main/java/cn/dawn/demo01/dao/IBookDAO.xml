@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dawn.demo01.dao.IBookDAO">
+    <sql id="mysql">
+        bookId,bookName,bookAuthor,bookPrice
+    </sql>
+    <select id="findAllBook" resultType="Book">
+        select * from book
+    </select>
+    <insert id="insertBook">
+        INSERT  INTO book(bookname,bookauthor,bookprice) VALUES (#{bookName},#{bookAuthor},#{bookPrice})
+    </insert>
+    <update id="updateBook">
+        UPDATE  book SET bookname=#{bookName},bookauthor=#{bookAuthor},bookprice=#{bookPrice} WHERE  bookid=#{bookID}
+    </update>
+    <delete id="deleteBook">
+        DELETE FROM book WHERE bookid=#{bookID}
+    </delete>
+    <select id="findOneBookByPK" resultType="Book" >
+        SELECT <include refid="mysql"/> FROM book WHERE bookid=#{bookID}
+    </select>
+
+    <!--模糊查询-->
+    <!--不可以防止sql注入
+    <select id="likeSelect" parameterType="string" resultType="Book">
+        SELECT * FROM book WHERE bookName LIKE '%${value}%'
+    </select>-->
+    <!--可以防止sql注入
+    <select id="likeSelect" parameterType="string" resultType="Book">
+        SELECT * FROM book WHERE bookName LIKE '%' #{value} '%'
+    </select>-->
+    <!--可以防止sql注入-->
+    <!--<select id="likeSelect" parameterType="string" resultType="Book">
+        SELECT <include refid="mysql"/> FROM book WHERE bookName LIKE concat('%',#{bookName},'%')
+    </select>-->
+
+
+    <!--这俩种都不可以-->
+    <!--<select id="likeSelect" parameterType="string" resultType="Book">
+        SELECT * FROM book WHERE bookName LIKE '%#{bookName}%'
+    </select>-->
+    <!--<select id="likeSelect" parameterType="string" resultType="Book">
+        SELECT * FROM book WHERE bookName LIKE '%${bookName}%'
+    </select>-->
+
+</mapper>

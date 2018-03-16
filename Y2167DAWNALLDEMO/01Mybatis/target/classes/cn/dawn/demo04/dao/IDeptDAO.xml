@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dawn.demo04.dao.IDeptDAO">
+
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"></cache>
+
+
+    <!--
+        eviction:清理缓存策咯，默认值LRU,最近最少使用先清除
+        flushInterval:刷新间隔，默认不设置，就是永久，单位毫秒
+        size：对象，默认1024
+        readOnly：只读，默认false
+     -->
+    <!--二级缓存-->
+    <!--<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true"/>-->
+    <!--一对多多条sql--><!--延迟加载--><!--缓存-->
+    <resultMap id="DeptMoreSqlMapper" type="Dept">
+        <id column="deptNo" property="deptNo"></id>
+        <result column="deptName" property="deptName"></result>
+        <collection property="emps" ofType="Emp" select="findDeptnoALLEmpsMoreSqlEmps" column="deptNo">
+            <id column="empNo" property="empNo"></id>
+            <result column="empName" property="empName"></result>
+        </collection>
+    </resultMap>
+
+
+    <!--设置二级缓存单条sql失效-->
+    <!--<select id="findDeptnoALLEmpsMoreSql" resultMap="DeptMoreSqlMapper" useCache="false">
+        SELECT deptNo,deptName FROM dept WHERE deptNo=#{deptNo}
+    </select>-->
+
+    <!--一对多多条sql--><!--延迟加载-->
+    <select id="findDeptnoALLEmpsMoreSql" resultMap="DeptMoreSqlMapper">
+        SELECT deptNo,deptName FROM dept WHERE deptNo=#{deptNo}
+    </select>
+    <select id="findDeptnoALLEmpsMoreSqlEmps" resultType="Emp">
+        SELECT * FROM emp where deptNo=#{deptNo}
+    </select>
+
+    <!--增删改对一级缓存的影响-->
+    <insert id="addDept">
+        INSERT INTO dept(deptName) VALUES (#{deptName})
+    </insert>
+
+</mapper>

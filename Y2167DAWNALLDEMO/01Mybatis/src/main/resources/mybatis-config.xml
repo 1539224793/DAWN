@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="jdbc.properties">
+    </properties>
+
+    <!--二级缓存配置-->
+    <!--<settings>
+        <setting name="cacheEnabled" value="true"/>&lt;!&ndash;开启，他也是默认值&ndash;&gt;
+        &lt;!&ndash;<setting name="cacheEnabled" value="false"/>&ndash;&gt;&lt;!&ndash;关闭&ndash;&gt;
+    </settings>-->
+    
+    
+    <!--直接加载-->
+    <!--不用配置就是直接加载-->
+    <!--侵入式延迟-->
+    <!--<settings>
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="true"/>
+    </settings>-->
+    <!--深度延迟-->
+    <!--<settings>
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>-->
+    <!--设置-->
+    <!--<settings>-->
+        <!--&lt;!&ndash;自动映射行为&ndash;&gt;-->
+        <!--<setting name="autoMappingBehavior" value="FULL"/>-->
+    <!--</settings>-->
+    <!--别名-->
+    <typeAliases>
+        <!--第一种-->
+        <!--<typeAlias type="cn.dawn.demo01.entity.Book" alias="book"></typeAlias>-->
+        <!--第二种-->
+        <!--<package name="cn.dawn.demo01.entity"></package>-->
+        <package name="cn.dawn.demo01.entity"></package>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+
+    </environments>
+    <!--<plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            &lt;!&ndash; config params as the following &ndash;&gt;
+            &lt;!&ndash;<!–分页参数合理化  –>&ndash;&gt;
+            <property name="reasonable" value="true"/>
+        </plugin>
+    </plugins>-->
+
+    <mappers>
+        <mapper resource="cn/dawn/demo01/dao/IBookDAO.xml"/>
+        <!--<mapper resource="cn/dawn/demo02gao/dao/IBookDAO.xml"/>
+        <mapper resource="cn/dawn/demo03/dao/IBookDAO.xml"/>
+        <mapper resource="cn/dawn/demo03/dao/IDeptDAO.xml"/>
+        <mapper resource="cn/dawn/demo03/dao/IEmpDAO.xml"/>
+        <mapper resource="cn/dawn/demo03/dao/ITeacherDAO.xml"/>
+        <mapper resource="cn/dawn/demo03/dao/ICategoryDAO.xml"/>-->
+        <!--<mapper resource="cn/dawn/demo04/dao/IDeptDAO.xml"/>-->
+    </mappers>
+</configuration>

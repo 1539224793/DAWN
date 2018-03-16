@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dawn.dao.INewsDAO">
+
+    <!--分页的resultMap-->
+    <resultMap id="NewsMapper" type="News">
+        <id column="newsid" property="newsid"></id>
+        <result property="newstitle" column="newstitle"></result>
+        <result property="clickcount" column="clickcount"></result>
+        <collection property="talks" column="newsid" select="findTalkListBynewsid" ofType="Talk">
+            <result property="content" column="content"></result>
+        </collection>
+    </resultMap>
+
+    <!--分页查询起-->
+    <select id="getCount" resultType="int">
+        select count(1) from news
+    </select>
+    <select id="findListNews" resultMap="NewsMapper">
+        select * from news limit #{0},#{1}
+    </select>
+    <select id="findTalkListBynewsid" resultType="Talk">
+        SELECT * FROM talk WHERE nid=#{newsid}
+    </select>
+    <!--分页完毕-->
+
+    <!--给访问量加一-->
+    <update id="updateNewsContent">
+        UPDATE news SET clickcount=clickcount+1 WHERE newsid=#{newsid}
+    </update>
+    <!--根据id查单独的新闻对象-->
+    <select id="findNewsByNewsid" resultMap="NewsMapper">
+        SELECT * FROM news WHERE newsid=#{newsid}
+    </select>
+    <!--增加评论-->
+    <insert id="insertTalks">
+        INSERT INTO talk(content,talktime,nid) VALUES (#{content},#{talktime},#{nid})
+    </insert>
+
+</mapper>

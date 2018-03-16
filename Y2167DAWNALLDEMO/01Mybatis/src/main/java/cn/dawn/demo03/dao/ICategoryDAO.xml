@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dawn.demo03.dao.ICategoryDAO">
+    <!--自关联-->
+    <resultMap id="CategoryMapper" type="Category">
+        <id column="cid" property="cid"></id>
+        <result property="cname" column="cname"></result>
+        <collection property="cates" column="cid" ofType="Category" select="findAllCategorySetBypid"></collection>
+    </resultMap>
+    <!--多对多-->
+    <select id="findAllCategorySetBypid" resultMap="CategoryMapper">
+        SELECT * FROM category WHERE pid=#{pid}
+    </select>
+
+
+</mapper>

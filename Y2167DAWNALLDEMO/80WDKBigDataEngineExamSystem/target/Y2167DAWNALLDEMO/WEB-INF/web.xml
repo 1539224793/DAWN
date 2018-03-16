@@ -1,0 +1,61 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+    <servlet>
+        <servlet-name>StuInfoServlet</servlet-name>
+        <servlet-class>cn.dawn.servlet.StuInfoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExamExcelServlet</servlet-name>
+        <servlet-class>cn.dawn.servlet.ExamExcelServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TrueAnswerServlet</servlet-name>
+        <servlet-class>cn.dawn.servlet.TrueAnswerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RecordScoreServlet</servlet-name>
+        <servlet-class>cn.dawn.servlet.RecordScoreServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LookKaoServlet</servlet-name>
+        <servlet-class>cn.dawn.servlet.LookKaoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StatisticalResultsServlet</servlet-name>
+        <servlet-class>cn.dawn.servlet.StatisticalResultsServlet</servlet-class>
+    </servlet>
+
+
+
+
+
+
+    <servlet-mapping>
+        <servlet-name>StuInfoServlet</servlet-name>
+        <url-pattern>/StuInfoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExamExcelServlet</servlet-name>
+        <url-pattern>/ExamExcelServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TrueAnswerServlet</servlet-name>
+        <url-pattern>/TrueAnswerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RecordScoreServlet</servlet-name>
+        <url-pattern>/RecordScoreServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LookKaoServlet</servlet-name>
+        <url-pattern>/LookKaoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StatisticalResultsServlet</servlet-name>
+        <url-pattern>/StatisticalResultsServlet</url-pattern>
+    </servlet-mapping>
+</web-app>

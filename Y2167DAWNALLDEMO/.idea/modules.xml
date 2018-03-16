@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/01Mybatis/01Mybatis.iml" filepath="$PROJECT_DIR$/01Mybatis/01Mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02Spring/02Spring.iml" filepath="$PROJECT_DIR$/02Spring/02Spring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/31Exam01news/31Exam01news.iml" filepath="$PROJECT_DIR$/31Exam01news/31Exam01news.iml" />
+      <module fileurl="file://$PROJECT_DIR$/60Crawler/60Crawler.iml" filepath="$PROJECT_DIR$/60Crawler/60Crawler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/71EasyUI/71EasyUI.iml" filepath="$PROJECT_DIR$/71EasyUI/71EasyUI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/80WDKBigDataEngineExamSystem/80WDKBigDataEngineExamSystem.iml" filepath="$PROJECT_DIR$/80WDKBigDataEngineExamSystem/80WDKBigDataEngineExamSystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/81ProjectSMBMS/81ProjectSMBMS.iml" filepath="$PROJECT_DIR$/81ProjectSMBMS/81ProjectSMBMS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Y2167DAWNALLDEMO.iml" filepath="$PROJECT_DIR$/Y2167DAWNALLDEMO.iml" />
+    </modules>
+  </component>
+</project>

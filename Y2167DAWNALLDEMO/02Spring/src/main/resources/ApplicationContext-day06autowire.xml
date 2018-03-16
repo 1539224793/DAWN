@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd ">
+    <!--汽车的bean-->
+    <bean id="car" class="cn.dawn.day06autowire.Car">
+        <property name="color" value="黑色"></property>
+        <property name="type" value="奥迪"></property>
+    </bean>
+    <!--小汽车的bean-->
+    <bean id="littercar" class="cn.dawn.day06autowire.LitterCar">
+        <property name="color" value="黑色"></property>
+        <property name="type" value="奥迪"></property>
+    </bean>
+
+    <!--bytype会不行-->
+    <!--<bean id="student" class="cn.dawn.day06autowire.Student" autowire="byType">
+        <property name="name" value="马云"></property>
+        <property name="age" value="18"></property>
+    </bean>-->
+    <bean id="student" class="cn.dawn.day06autowire.Student" autowire="byName">
+        <property name="name" value="马云"></property>
+        <property name="age" value="18"></property>
+    </bean>
+</beans>

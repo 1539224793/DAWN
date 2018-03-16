@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dawn.dao.IUserDAO">
+    <!--登陆-->
+    <select id="loginUser" resultType="User">
+      SELECT * FROM smbms_user WHERE userCode=#{0} AND userPassword=#{1}
+    </select>
+    <!--密码修改-->
+    <update id="updateUserPassword">
+        UPDATE smbms_user SET userPassword=#{1} WHERE userCode=#{0}
+    </update>
+    <!--分页查询起-->
+    <select id="getCount" resultType="int">
+        select count(1) from smbms_user
+    </select>
+    <select id="findListUser" resultType="User">
+        select * from smbms_user limit #{0},#{1}
+    </select>
+    <!--分页查询尾-->
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dawn.day05.dao.BgDAO">
+    <insert id="insertcnblog">
+        INSERT INTO Cnblog(bgtitle,bgpath) VALUES (#{bgtitle},#{bgpath})
+    </insert>
+
+    <delete id="delectAll">
+        DELETE FROM Cnblog
+    </delete>
+
+    <select id="findAllCnblog" resultType="Cnblog">
+        SELECT * FROM Cnblog
+    </select>
+</mapper>

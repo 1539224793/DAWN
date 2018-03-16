@@ -1,0 +1,14 @@
+2018-03-05 12:36:49.077 DEBUG [main]cn.dawn.demo01.dao.IBookDAO.likeSelect.debug:145 -==>  Preparing: SELECT * FROM book WHERE bookName LIKE '%?%' 
+2018-03-05 12:38:07.808 DEBUG [main]cn.dawn.demo01.dao.IBookDAO.likeSelect.debug:145 -==>  Preparing: SELECT * FROM book WHERE bookName LIKE '%?%' 
+2018-03-05 12:40:35.657 DEBUG [main]cn.dawn.demo01.dao.IBookDAO.likeSelect.debug:145 -==>  Preparing: SELECT * FROM book WHERE bookName LIKE '%?%' 
+2018-03-05 12:40:47.273 DEBUG [main]cn.dawn.demo01.dao.IBookDAO.likeSelect.debug:145 -==>  Preparing: SELECT bookId,bookName,bookAuthor,bookPrice FROM book WHERE bookName LIKE concat('%',?,'%') 
+2018-03-05 12:40:47.301 DEBUG [main]cn.dawn.demo01.dao.IBookDAO.likeSelect.debug:145 -==> Parameters: 的(String)
+2018-03-05 12:40:47.383 DEBUG [main]cn.dawn.demo01.dao.IBookDAO.likeSelect.debug:145 -<==      Total: 2
+2018-03-05 12:44:26.200 DEBUG [main]cn.dawn.demo01.dao.IBookDAO.likeSelect.debug:145 -==>  Preparing: SELECT * FROM book WHERE bookName LIKE ? 
+2018-03-05 12:44:26.228 DEBUG [main]cn.dawn.demo01.dao.IBookDAO.likeSelect.debug:145 -==> Parameters: 的(String)
+2018-03-05 12:44:26.238 DEBUG [main]cn.dawn.demo01.dao.IBookDAO.likeSelect.debug:145 -<==      Total: 0
+2018-03-05 12:45:32.113 DEBUG [main]cn.dawn.demo01.dao.IBookDAO.likeSelect.debug:145 -==>  Preparing: SELECT * FROM book WHERE bookName LIKE ?% 
+2018-03-05 12:45:32.144 DEBUG [main]cn.dawn.demo01.dao.IBookDAO.likeSelect.debug:145 -==> Parameters: 的(String)
+2018-03-05 12:45:38.189 DEBUG [main]cn.dawn.demo01.dao.IBookDAO.likeSelect.debug:145 -==>  Preparing: SELECT * FROM book WHERE bookName LIKE ? 
+2018-03-05 12:45:38.219 DEBUG [main]cn.dawn.demo01.dao.IBookDAO.likeSelect.debug:145 -==> Parameters: 的(String)
+2018-03-05 12:45:38.228 DEBUG [main]cn.dawn.demo01.dao.IBookDAO.likeSelect.debug:145 -<==      Total: 0

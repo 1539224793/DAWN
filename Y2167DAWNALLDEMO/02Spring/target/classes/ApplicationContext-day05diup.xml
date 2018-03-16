@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd ">
+
+    <bean id="car" class="cn.dawn.day05diup.Car">
+        <property name="color" value="黑色"></property>
+        <property name="type" value="奥迪"></property>
+    </bean>
+    <!--di构造注入-->
+    <!--<bean id="student" class="cn.dawn.day05diup.Student">
+        <constructor-arg index="0" value="孟六"></constructor-arg>
+        <constructor-arg index="1" value="20"></constructor-arg>
+        <constructor-arg index="2" ref="car"></constructor-arg>
+    </bean>-->
+
+    <!--p命名注入-->
+    <bean id="student" class="cn.dawn.day05diup.Student" p:name="孟小六" p:age="8" p:car-ref="car"></bean>
+
+
+    <!--di的集合注入-->
+    <bean id="mycollection" class="cn.dawn.day05diup.MyCollection">
+        <!--数组注入-->
+        <property name="array">
+            <array>
+                <value>孟六</value>
+                <value>孟六十六</value>
+                <value>孟六百六十六</value>
+            </array>
+        </property>
+        <!--list集合注入-->
+        <property name="list">
+            <list>
+                <value>奥迪</value>
+                <value>奥小迪</value>
+                <value>奥迪迪</value>
+            </list>
+        </property>
+        <!--set集合注入-->
+        <property name="set">
+            <set>
+                <value>set1</value>
+                <value>set2</value>
+                <value>set3</value>
+            </set>
+        </property>
+        <!--map集合注入-->
+        <property name="map">
+            <map>
+                <entry key="姓名">
+                    <value>孟五</value>
+                </entry>
+                <entry key="年龄">
+                    <value>555</value>
+                </entry>
+            </map>
+        </property>
+        <!--properties-->
+        <property name="properties">
+            <props>
+                <prop key="key1">v1</prop>
+                <prop key="key2">v2</prop>
+                <prop key="key3">v3</prop>
+            </props>
+        </property>
+    </bean>
+
+
+
+    <!--di的集合注入     多例-->
+    <bean id="xxx" class="cn.dawn.day05diup.MyCollection" scope="prototype">
+        <!--数组注入-->
+        <property name="array">
+            <array>
+                <value>孟六</value>
+                <value>孟六十六</value>
+                <value>孟六百六十六</value>
+            </array>
+        </property>
+        <!--list集合注入-->
+        <property name="list">
+            <list>
+                <value>奥迪</value>
+                <value>奥小迪</value>
+                <value>奥迪迪</value>
+            </list>
+        </property>
+        <!--set集合注入-->
+        <property name="set">
+            <set>
+                <value>set1</value>
+                <value>set2</value>
+                <value>set3</value>
+            </set>
+        </property>
+        <!--map集合注入-->
+        <property name="map">
+            <map>
+                <entry key="姓名">
+                    <value>孟五</value>
+                </entry>
+                <entry key="年龄">
+                    <value>555</value>
+                </entry>
+            </map>
+        </property>
+        <!--properties-->
+        <property name="properties">
+            <props>
+                <prop key="key1">v1</prop>
+                <prop key="key2">v2</prop>
+                <prop key="key3">v3</prop>
+            </props>
+        </property>
+    </bean>
+</beans>

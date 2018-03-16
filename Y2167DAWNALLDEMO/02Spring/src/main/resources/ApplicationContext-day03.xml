@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--墨盒-->
+    <bean id="ink" class="cn.dawn.day03printer.ink.ColorInk"></bean>
+    <!--纸张-->
+    <bean id="paper" class="cn.dawn.day03printer.paper.A4Paper"></bean>
+    <!--打印机-->
+    <bean id="printer" class="cn.dawn.day03printer.printer.Printer">
+        <property name="ink" ref="ink"></property>
+        <property name="paper" ref="paper"></property>
+     </bean>
+</beans>

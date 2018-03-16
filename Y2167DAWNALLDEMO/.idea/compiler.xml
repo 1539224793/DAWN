@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="01Mybatis" />
+        <module name="02Spring" />
+        <module name="31Exam01news" />
+        <module name="60Crawler" />
+        <module name="71EasyUI" />
+        <module name="80WDKBigDataEngineExamSystem" />
+        <module name="81ProjectSMBMS" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="01Mybatis" target="1.5" />
+      <module name="02Spring" target="1.5" />
+      <module name="31Exam01MyBatis" target="1.5" />
+      <module name="31Exam01news" target="1.5" />
+      <module name="60Crawler" target="1.5" />
+      <module name="71EasyUI" target="1.5" />
+      <module name="80WDKBigDataEngineExamSystem" target="1.5" />
+      <module name="81ProjectSMBMS" target="1.5" />
+      <module name="Y2167DAWNALLDEMO" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

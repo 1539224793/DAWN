@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dawn.demo03.dao.IBookDAO">
+    <sql id="mysql">
+        bookId,bookName,bookAuthor,bookPrice
+    </sql>
+    <!--resultmap-->
+    <resultMap id="bookMapper" type="Book">
+        <id column="bookID" property="bookID"></id>
+        <!--默认的自动映射行为是PARTIAL部分映射，就不用写bookname也能装配到-->
+    </resultMap>
+    <!--resultmap-->
+    <select id="findAllBook" resultMap="bookMapper">
+        select * from book
+    </select>
+    <!--返回主键列-->
+    <insert id="insertBook">
+        INSERT  INTO book(bookname,bookauthor,bookprice) VALUES (#{bookName},#{bookAuthor},#{bookPrice})
+        <selectKey resultType="int" keyProperty="bookID">
+            SELECT @@IDENTITY
+        </selectKey>
+    </insert>
+
+    <!--多条件查询map版-->
+    <select id="findtrueBookMap" resultType="Book">
+        select * from book WHERE bookName LIKE '%' #{bookName} '%' AND bookPrice>#{bookPrice}
+    </select>
+    <!--多条件查询Index版-->
+    <select id="findtrueBookIndex" resultType="Book">
+        select * from book WHERE bookName LIKE '%' #{0} '%' AND bookPrice>#{1}
+    </select>
+    <!--智能标签，where if-->
+    <select id="findtrueBookByIf" resultType="Book">
+        select * from book
+        <where>
+            <if test="#{0}!=null">
+                AND bookName LIKE '%' #{0} '%'
+            </if>
+            <if test="#{0}!=null">
+                AND bookPrice>#{1}
+            </if>
+        </where>
+    </select>
+    <!--智能标签，where choose-->
+    <select id="findtrueBookByChoose" resultType="Book">
+        select * from book
+        <where>
+            <choose>
+                <when test="#{0}!=null">
+                    AND bookPrice>#{0}
+                </when>
+                <otherwise>1=1</otherwise>
+            </choose>
+        </where>
+    </select>
+    <!--智能标签，where foreach array-->
+    <select id="findtrueBookByForeachArray" resultType="Book">
+        select * from book
+        <where>
+            bookID IN 
+            <foreach collection="array" open="(" close=")" separator="," item="myid">
+                #{myid}
+            </foreach>
+        </where>
+    </select>
+    <!--智能标签，where foreach list-->
+    <select id="findtrueBookByForeachList" resultType="Book">
+        select * from book
+        <where>
+            bookID IN
+            <foreach collection="list" open="(" close=")" separator="," item="myid">
+                #{myid}
+            </foreach>
+        </where>
+    </select>
+    <!--智能标签，where foreach list book-->
+    <select id="findtrueBookByForeachListBook" resultType="Book">
+        select * from book
+        <where>
+            bookID IN
+            <foreach collection="list" open="(" close=")" separator="," item="book">
+                #{book.bookID}
+            </foreach>
+        </where>
+    </select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <update id="updateBook">
+        UPDATE  book SET bookname=#{bookName},bookauthor=#{bookAuthor},bookprice=#{bookPrice} WHERE  bookid=#{bookID}
+    </update>
+    <delete id="deleteBook">
+        DELETE FROM book WHERE bookid=#{bookID}
+    </delete>
+    <select id="findOneBookByPK" resultType="Book" >
+        SELECT <include refid="mysql"/> FROM book WHERE bookid=#{bookID}
+    </select>
+
+    <!--模糊查询-->
+    <!--不可以防止sql注入
+    <select id="likeSelect" parameterType="string" resultType="Book">
+        SELECT * FROM book WHERE bookName LIKE '%${value}%'
+    </select>-->
+    <!--可以防止sql注入
+    <select id="likeSelect" parameterType="string" resultType="Book">
+        SELECT * FROM book WHERE bookName LIKE '%' #{value} '%'
+    </select>-->
+    <!--可以防止sql注入-->
+    <select id="likeSelect" parameterType="string" resultType="Book">
+        SELECT <include refid="mysql"/> FROM book WHERE bookName LIKE concat('%',#{bookName},'%')
+    </select>
+</mapper>

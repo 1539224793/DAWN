@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+
+
+
+#xuan{
+    margin:0px 10px;
+    background:yellow
+}
+
+#tihao{
+    margin:0px 20px;
+    background:orange
+}
+
+#I1{
+    text-align:center;
+    background:orange;
+
+}
+#tit01{
+    text-align:center;
+}
+
+#zhuyi01{
+    font-size:14px;
+    color: red;
+    text-align:center;
+
+
+}
+#tableall{
+    margin:0 auto;
+}

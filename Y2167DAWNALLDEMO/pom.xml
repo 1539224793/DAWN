@@ -1,0 +1,30 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>cn.dawn</groupId>
+  <artifactId>Y2167DAWNALLDEMO</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <modules>
+    <module>01Mybatis</module>
+    <module>80WDKBigDataEngineExamSystem</module>
+      <module>71EasyUI</module>
+      <module>81ProjectSMBMS</module>
+    <module>31Exam01news</module>
+      <module>02Spring</module>
+      <module>60Crawler</module>
+  </modules>
+  <name>Y2167DAWNALLDEMO Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <finalName>Y2167DAWNALLDEMO</finalName>
+  </build>
+</project>

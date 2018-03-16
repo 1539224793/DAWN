@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--要增强的对象-->
+    <bean id="service" class="cn.dawn.day20aspectjxml.SomeServiceImpl"></bean>
+    <bean id="bookservice" class="cn.dawn.day20aspectjxml.BookServiceImpl"></bean>
+    <!--增强的内容-->
+    <bean id="MyAspectJ" class="cn.dawn.day20aspectjxml.MyAspectJ"></bean>
+    <!--aspectjxml的自动代理-->
+    <aop:config>
+        <aop:pointcut id="mypointcut1" expression="execution(* *..day20aspectjxml.*.select(..))"></aop:pointcut>
+        <aop:pointcut id="mypointcut2" expression="execution(* *..day20aspectjxml.*.update(..))"></aop:pointcut>
+        <aop:pointcut id="mypointcut3" expression="execution(* *..day20aspectjxml.*.select*(..))"></aop:pointcut>
+        <aop:pointcut id="mypointcut4" expression="execution(* *..day20aspectjxml.*.delete(..))"></aop:pointcut>
+        <aop:aspect ref="MyAspectJ">
+            <aop:before method="myBefore" pointcut-ref="mypointcut2"></aop:before>
+            <aop:before method="myBefore1(org.aspectj.lang.JoinPoint)" pointcut-ref="mypointcut2"></aop:before>
+            <aop:after method="myAfter" pointcut-ref="mypointcut1"></aop:after>
+            <aop:around method="myAround(org.aspectj.lang.ProceedingJoinPoint)" pointcut-ref="mypointcut4"></aop:around>
+            <aop:after-throwing method="myAfterThrowing" pointcut-ref="mypointcut3"></aop:after-throwing>
+            <aop:after-returning method="myAfterReturning" pointcut-ref="mypointcut1"></aop:after-returning>
+        </aop:aspect>
+    </aop:config>
+
+</beans>

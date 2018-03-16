@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--汽车-->
+    <bean id="car" class="cn.dawn.day02di.Car">
+        <property name="type" value="奔驰"></property>
+        <property name="color" value="红色"></property>
+    </bean>
+    <!--学生-->
+    <bean id="stu" class="cn.dawn.day02di.Stu">
+        <property name="name" value="孟六"></property>
+        <property name="age" value="20"></property>
+        <property name="car" ref="car"></property>
+    </bean>
+
+</beans>
